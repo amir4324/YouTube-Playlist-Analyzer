@@ -1,0 +1,233 @@
+
+myFunction();
+
+
+function myFunction() {
+
+     /* Main Funcation For Total Duration */ 
+    
+for (var i =0, total = 0 ; i <= document.getElementsByClassName("timestamp").length -1 ; i = i+1){
+     var str = document.getElementsByClassName("timestamp")[i].children[0].innerHTML;
+     var res = str.split(":");
+            if (res.length == 3){
+                        var time1 = res[0] * 60 * 60;
+                        var time2 = res[1] * 60 ;
+                        var time3 = res[2] ;
+            }
+        if (res.length == 2){
+                        var time1 = 0;
+                        var time2 = res[0] * 60 ;
+                        var time3 = res[1] ;
+            }
+        if (res.length == 1){
+                        var time1 = 0;
+                        var time2 = 0 ;
+                        var time3 = res[0] ;
+            }
+                
+   
+    
+    
+     var ti = parseInt(time1) + parseInt(time2) + parseInt(time3);
+   
+     total = ti + total; 
+     console.log(total + " total " )
+    
+ 
+}
+
+/* End Main Function total duration */ 
+
+
+
+/*  Convert Time total duration */ 
+
+
+	
+
+var sec, min, hour;
+
+if(total<3600){
+    var a = Math.floor(total/60); //minutes
+    var b = total%60; //seconds
+
+    if (b!=1){
+        sec = "seconds";
+    }else{
+        sec = "second";
+    }
+
+    if(a!=1){
+        min = "minutes";
+    }else{
+        min = "minute";
+    }
+     console.log("Total Duration " + a + " " + min + " and " + b + " " + sec + "." );
+   var alt =  "Total Duration " + a + " " + min + " and " + b + " " + sec + "."  ;
+
+}else{
+        var a = Math.floor(total/3600); //hours
+    var x = total%3600;
+    var b = Math.floor(x/60); //minutes
+    var c = total%60; //seconds
+
+     if (c!=1){
+        sec = "seconds";
+    }else{
+        sec = "second";
+    }
+
+    if(b!=1){
+        min = "minutes";
+    }else{
+        min = "minute";
+    }
+
+    if(c!=1){
+        hour = "hours";
+    }else{
+        hour = "hour";
+    }
+       console.log("Total Duration " + a + " " + hour + ", " + b + " " + min + " and " + c + " " + sec + "." );
+
+            var te = "Total Duration " + a + " " + hour + ", " + b + " " + min + " and " + c + " " + sec + "."  ; 
+     
+    var alt =  "Total Duration " + a + " " + hour + ", " + b + " " + min + " and " + c + " " + sec + "." ;
+ 
+}
+ 
+   
+  
+    
+    
+    /* End Convert Time for total duration */ 
+    /*******************************************/
+    
+    
+
+
+
+
+
+/* Watched ******************************************** */
+
+
+/* Main Function for watched duration */ 
+
+for (var i =0, totalw = 0 ; i <= document.getElementsByClassName("timestamp").length -1 ; i = i+1){
+    
+    
+                       if (document.getElementsByClassName("pl-video-thumbnail")[i].children[0].lastElementChild.className == "resume-playback-progress-bar") {
+                                             var str = document.getElementsByClassName("timestamp")[i].children[0].innerHTML;
+                                        var res = str.split(":");
+                                            if (res.length == 3){
+                                                var time1 = res[0] * 60 * 60;
+                                                var time2 = res[1] * 60 ;
+                                                var time3 = res[2] ;
+                                                                }
+                                            if (res.length == 2){
+                                                var time1 = 0;
+                                                var time2 = res[0] * 60 ;
+                                                var time3 = res[1] ;
+                                            }
+                                            if (res.length == 1){
+                                                var time1 = 0;
+                                                var time2 = 0 ;
+                                                var time3 = res[0] ;
+                                            }
+                
+   
+
+                                    var ti = parseInt(time1) + parseInt(time2) + parseInt(time3);
+                                    var width = parseInt(document.getElementsByClassName("pl-video-thumbnail")[i].children[0].lastElementChild.style.width);
+                           
+                                                if (width > 99) { 
+                                                            
+                                                    totalw = totalw + ti;
+                                                
+                                                }else{
+                                                    
+                                                    var p1 =  width / 100;
+                                                    var p2 = p1 * ti ;
+                                                    totalw =   totalw + p2 ; 
+                                                }
+                                    
+                                              
+                                    }
+            
+
+     
+    
+ 
+}
+
+/* End Main Function watched duration */ 
+
+
+
+/*  Convert Time */ 
+
+
+	totalw = Math.round(totalw);
+    console.log(totalw + "Test");
+
+var sec, min, hour;
+
+if(totalw<3600){
+    var a = Math.floor(totalw/60); //minutes
+    var b = totalw%60; //seconds
+
+    if (b!=1){
+        sec = "seconds";
+    }else{
+        sec = "second";
+    }
+
+    if(a!=1){
+        min = "minutes";
+    }else{
+        min = "minute";
+    }
+     console.log("Total Watched Duration " + a + " " + min + " and " + b + " " + sec + "." );
+    var alw = "Total Watched Duration " + a + " " + min + " and " + b + " " + sec + "." ;
+      
+
+}else{
+        var a = Math.floor(totalw/3600); //hours
+    var x = totalw%3600;
+    var b = Math.floor(x/60); //minutes
+    var c = totalw%60; //seconds
+
+     if (c!=1){
+        sec = "seconds";
+    }else{
+        sec = "second";
+    }
+
+    if(b!=1){
+        min = "minutes";
+    }else{
+        min = "minute";
+    }
+
+    if(c!=1){
+        hour = "hours";
+    }else{
+        hour = "hour";
+    }
+       console.log("Total Watched Duration " + a + " " + hour + ", " + b + " " + min + " and " + c + " " + sec + "." );
+     
+     var alw = "Total Watched Duration " + a + " " + hour + ", " + b + " " + min + " and " + c + " " + sec + "." ;
+}
+
+
+    
+    alert(alt);
+    alert(alw);
+   
+   
+    
+    
+};
+
+
