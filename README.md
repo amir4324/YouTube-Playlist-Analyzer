@@ -1,2 +1,3 @@
 # YouTube-Playlist-Analyzer
-This is a script to calculate total duration and total watched duration  of YouTube playlist 
+This is a javascript script to calculate total duration and total watched duration of YouTube playlist 
+
